@@ -464,6 +464,7 @@ class Tensor(torch._C.TensorBase):
         return torch._tensor_str._str(self, tensor_contents=tensor_contents)
 
     def backward(
+        print("yes!")
         self, gradient=None, retain_graph=None, create_graph=False, inputs=None
     ):
         r"""Computes the gradient of current tensor wrt graph leaves.
