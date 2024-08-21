@@ -124,6 +124,9 @@ class SyncBatchNorm(Function):
 
     @staticmethod
     def backward(self, grad_output):
+
+        print("yes!_here!1")
+        
         if not (
             grad_output.is_contiguous(memory_format=torch.channels_last)
             or grad_output.is_contiguous(memory_format=torch.channels_last_3d)
@@ -270,6 +273,9 @@ class CrossMapLRN2d(Function):
 
     @staticmethod
     def backward(ctx, grad_output):
+        
+        print("yes!_here!2")
+        
         input, output = ctx.saved_tensors
         grad_input = grad_output.new()
 
@@ -316,4 +322,5 @@ class BackwardHookFunction(torch.autograd.Function):
 
     @staticmethod
     def backward(ctx, *args):
+        print("yes!_here!3")
         return args
